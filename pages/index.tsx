@@ -1,23 +1,24 @@
-import ShopLayout from "../components/layouts/ShopLayout"
-import Typography from "@mui/material/Typography"
-import { initialData } from "../database/products"
-import { ProductList } from "../components/products"
+import type { NextPage } from 'next';
+import { Typography } from '@mui/material';
 
-function Home() {
-	return (
-		<ShopLayout
-			title={"Shop - Home"}
-			pageDescription={"Encuentra los mejores productos"}>
-			<Typography variant="h1" component={"h1"}>
-				Tienda
-			</Typography>
-			<Typography variant="h2" component={"h2"} sx={{ mb: 1 }}>
-				Todos los productos
-			</Typography>
+import { ShopLayout } from '../components/layouts';
+import { initialData } from '../database/products';
+import { ProductList } from '../components/products';
 
-			<ProductList products={initialData.products as any} />
-		</ShopLayout>
-	)
+
+const Home: NextPage = () => {
+  return (
+    <ShopLayout title={'Teslo-Shop - Home'} pageDescription={'Encuentra los mejores productos de Teslo aquí'}>
+        <Typography variant='h1' component='h1'>Tienda</Typography>
+        <Typography variant='h2' sx={{ mb: 1 }}>Todos los productos</Typography>
+
+        <ProductList 
+          products={ initialData.products as any }
+        />
+    
+
+    </ShopLayout>
+  )
 }
 
 export default Home

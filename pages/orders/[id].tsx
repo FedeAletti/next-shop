@@ -1,92 +1,86 @@
-import { CreditCardOffOutlined, CreditScoreOutlined } from "@mui/icons-material"
+import NextLink from "next/link"
+
 import {
+	Link,
 	Box,
-	Button,
 	Card,
 	CardContent,
-	Chip,
 	Divider,
 	Grid,
-	Link,
 	Typography,
+	Chip,
 } from "@mui/material"
-import NextLink from "next/link"
-import React from "react"
+import { CreditCardOffOutlined, CreditScoreOutlined } from "@mui/icons-material"
+
+import { ShopLayout } from "../../components/layouts/ShopLayout"
 import { CartList, OrderSummary } from "../../components/cart"
-import ShopLayout from "../../components/layouts/ShopLayout"
 
 const OrderPage = () => {
 	return (
 		<ShopLayout
-			title={`Resumen de la orden ${123}`}
-			pageDescription="Resumen de la orden">
-			<Typography variant="h1" component="h1" sx={{ mb: 2 }}>
+			title="Resumen de la orden 123671523"
+			pageDescription={"Resumen de la orden"}>
+			<Typography variant="h1" component="h1">
 				Orden: ABC123
 			</Typography>
 
+			{/* <Chip 
+            sx={{ my: 2 }}
+            label="Pendiente de pago"
+            variant='outlined'
+            color="error"
+            icon={ <CreditCardOffOutlined /> }
+        /> */}
 			<Chip
-				sx={{
-					my: 2,
-				}}
-				label="Pendiente de pago"
-				variant="outlined"
-				color="error"
-				icon={<CreditCardOffOutlined />}
-			/>
-			<Chip
-				sx={{
-					my: 2,
-				}}
-				label="Orden ya pagada"
+				sx={{ my: 2 }}
+				label="Orden ya fue pagada"
 				variant="outlined"
 				color="success"
 				icon={<CreditScoreOutlined />}
 			/>
 
 			<Grid container>
-				<Grid item xs={12} md={7}>
+				<Grid item xs={12} sm={7}>
 					<CartList />
 				</Grid>
-				<Grid item xs={12} md={5}>
+				<Grid item xs={12} sm={5}>
 					<Card className="summary-card">
 						<CardContent>
 							<Typography variant="h2">Resumen (3 productos)</Typography>
 							<Divider sx={{ my: 1 }} />
 
-							<Box display={"flex"} justifyContent="space-between">
+							<Box display="flex" justifyContent="space-between">
 								<Typography variant="subtitle1">
 									Dirección de entrega
 								</Typography>
-								<NextLink href={"/checkout/address"} passHref legacyBehavior>
+								<NextLink href="/checkout/address" passHref legacyBehavior>
 									<Link underline="always">Editar</Link>
 								</NextLink>
 							</Box>
 
-							<Typography>Juan Perez</Typography>
-							<Typography>Calle Falsa 123</Typography>
-							<Typography>Santa Fe, 3000</Typography>
-							<Typography>Argentina</Typography>
-							<Typography>+1 12341234</Typography>
+							<Typography>Fernando Herrera</Typography>
+							<Typography>323 Algun lugar</Typography>
+							<Typography>Stittsville, HYA 23S</Typography>
+							<Typography>Canadá</Typography>
+							<Typography>+1 23123123</Typography>
 
 							<Divider sx={{ my: 1 }} />
 
-							<Box display={"flex"} justifyContent="end">
-								<NextLink href={"/cart"} passHref legacyBehavior>
+							<Box display="flex" justifyContent="end">
+								<NextLink href="/cart" passHref legacyBehavior>
 									<Link underline="always">Editar</Link>
 								</NextLink>
 							</Box>
+
 							<OrderSummary />
 
-							<Box
-								sx={{
-									mt: 3,
-								}}>
+							<Box sx={{ mt: 3 }}>
+								{/* TODO */}
 								<h1>Pagar</h1>
+
 								<Chip
-									sx={{
-										my: 2,
-									}}
-									label="Orden ya pagada"
+									sx={{ my: 2 }}
+									label="Orden ya fue pagada"
 									variant="outlined"
 									color="success"
 									icon={<CreditScoreOutlined />}

@@ -1,13 +1,14 @@
-import { Box } from "@mui/material"
+import { FC } from "react"
 import Head from "next/head"
-import React, { FC } from "react"
+import { Box } from "@mui/material"
 
-interface AuthLayoutProps {
+interface Props {
 	title: string
+
 	children: React.ReactNode
 }
 
-export const AuthLayout: FC<AuthLayoutProps> = ({ children, title }) => {
+export const AuthLayout: FC<Props> = ({ children, title }) => {
 	return (
 		<>
 			<Head>
@@ -16,10 +17,10 @@ export const AuthLayout: FC<AuthLayoutProps> = ({ children, title }) => {
 
 			<main>
 				<Box
-					display={"flex"}
+					display="flex"
 					justifyContent="center"
-					alignItems={"center"}
-					height="calc(100vh-200px">
+					alignItems="center"
+					height="calc(100vh - 200px)">
 					{children}
 				</Box>
 			</main>

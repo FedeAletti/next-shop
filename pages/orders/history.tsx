@@ -1,21 +1,18 @@
-import React from "react"
-import ShopLayout from "../../components/layouts/ShopLayout"
-import { Typography, Grid, Chip, Link } from "@mui/material"
-import {
-	DataGrid,
-	GridRowsProp,
-	GridColDef,
-	GridRenderCellParams,
-} from "@mui/x-data-grid"
 import NextLink from "next/link"
+
+import { Typography, Grid, Chip, Link } from "@mui/material"
+import { DataGrid, GridColDef, GridRenderCellParams } from "@mui/x-data-grid"
+
+import { ShopLayout } from "../../components/layouts"
 
 const columns: GridColDef[] = [
 	{ field: "id", headerName: "ID", width: 100 },
-	{ field: "fullName", headerName: "Nombre Completo", width: 300 },
+	{ field: "fullname", headerName: "Nombre Completo", width: 300 },
+
 	{
 		field: "paid",
 		headerName: "Pagada",
-		description: "Muestra información si está la orden pagada o no",
+		description: "Muestra información si está pagada la orden o no",
 		width: 200,
 		renderCell: (params: GridRenderCellParams) => {
 			return params.row.paid ? (
@@ -27,7 +24,7 @@ const columns: GridColDef[] = [
 	},
 	{
 		field: "orden",
-		headerName: "Ver order",
+		headerName: "Ver orden",
 		width: 200,
 		sortable: false,
 		renderCell: (params: GridRenderCellParams) => {
@@ -39,22 +36,23 @@ const columns: GridColDef[] = [
 		},
 	},
 ]
-const rows: GridRowsProp = [
-	{ id: 1, paid: true, fullName: "Juan Perez" },
-	{ id: 2, paid: false, fullName: "Maria Lopez" },
-	{ id: 3, paid: true, fullName: "Pedro Sanchez" },
-	{ id: 4, paid: true, fullName: "Jose Gonzalez" },
-	{ id: 5, paid: false, fullName: "Luisa Martinez" },
-	{ id: 6, paid: true, fullName: "Carlos Ramirez" },
+
+const rows = [
+	{ id: 1, paid: true, fullname: "Fernando Herrera" },
+	{ id: 2, paid: false, fullname: "Melissa Flores" },
+	{ id: 3, paid: true, fullname: "Hernando Vallejo" },
+	{ id: 4, paid: false, fullname: "Emin Reyes" },
+	{ id: 5, paid: false, fullname: "Eduardo Rios" },
+	{ id: 6, paid: true, fullname: "Natalia Herrera" },
 ]
 
 const HistoryPage = () => {
 	return (
 		<ShopLayout
-			title="Historial de ordenes"
-			pageDescription="Este es tu historial de ordenes">
-			<Typography variant="h1" component="h1" sx={{ mb: 3 }}>
-				Historial de órdenes
+			title={"Historial de ordenes"}
+			pageDescription={"Historial de ordenes del cliente"}>
+			<Typography variant="h1" component="h1">
+				Historial de ordenes
 			</Typography>
 
 			<Grid container>

@@ -1,35 +1,36 @@
-import { FC } from "react"
-import { Slide } from "react-slideshow-image"
-import styles from "./ProductSlideShow.module.css"
-import "react-slideshow-image/dist/styles.css"
+import { FC } from 'react';
+import { Slide } from 'react-slideshow-image';
+
+import 'react-slideshow-image/dist/styles.css';
+import styles from './ProductSlideshow.module.css';
 
 interface Props {
-	images: string[]
+    images: string[]
 }
 
-export const ProductSlideShow: FC<Props> = ({ images }) => {
-	return (
-		<Slide
-			easing="ease"
-			duration={700}
-			indicators={true}
-			arrows={true}
-			autoplay={true}
-			pauseOnHover={true}
-			canSwipe={true}
-			transitionDuration={500}>
-			{images.map((image, index) => {
-				const url = `/products/${image}`
-				return (
-					<div className={styles["each-slide"]} key={image}>
-						<div
-							style={{
-								backgroundImage: `url(${url})`,
-								backgroundSize: "cover",
-							}}></div>
-					</div>
-				)
-			})}
-		</Slide>
-	)
+export const ProductSlideshow: FC<Props> = ({ images }) => {
+  return (
+    <Slide
+        easing="ease"
+        duration={ 7000 }
+        indicators
+    >
+        {
+            images.map( image =>  {
+                const url = `/products/${ image }`;
+                return (
+                    <div className={ styles['each-slide'] } key={ image }>
+                        <div style={{
+                            backgroundImage: `url(${ url })`,
+                            backgroundSize: 'cover'
+                        }}>
+                        </div>
+                    </div>
+                )
+
+            })
+        }
+
+    </Slide>
+  )
 }
